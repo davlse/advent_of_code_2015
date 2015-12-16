@@ -1,7 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Data.Bits
-import Data.Word as W
 -- This module depends on the package cryptohash. 
 import Crypto.Hash.MD5
 import qualified Data.ByteString.Internal as BS
@@ -34,3 +33,4 @@ Now find one that starts with six zeroes.
 mineAdventCoins2 :: B.ByteString -> Int
 mineAdventCoins2 str = head $ dropWhile pred [1..]
   where pred = not . B.all (=='\0') . B.take 3 . hashing str
+
